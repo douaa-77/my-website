@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Amour's safe space</title>
+        <link rel="stylesheet" href="style.css?v=2">
+    </head>
+    <body>
+        <h2>Hello special people, Welcome to my world</h2>
+        <div class="container">
+            <div class="container">
+                <div class="left-section">
+            
+                </div>
+                <div class="right-section">
+                    <div id="empty-box">Empty Box (For Future)</div>
+                </div>
+            </div>
+            <!-- To-Do List Section -->
+            <div id="todo">
+                <h2>To-Do List</h2>
+                <input type="text" id="taskInput" placeholder="Enter a task">
+                <button onclick="addTask()">Add Task</button>
+                <ul id="taskList"></ul>
+            </div>
+    
+            <div id="wallpaper">
+                <h2>Change Wallpaper</h2>
+                <input type="file" id="wallpaperInput" accept="image/*" onchange="changeWallpaper(event)">
+            </div>
+    
+            <!-- Timer Section -->
+        <div id="timer">
+              <h2>Focus Timer</h2>
+              <p id="time">25:00</p>
+              <button onclick="startTimer()">Start</button>
+              <button onclick="pauseTimer()">Pause</button>
+              <button onclick="resetTimer()">Reset</button>
+              <button onclick="increaseTime()">➕ 1 min</button>
+              <button onclick="decreaseTime()">➖ 1 min</button>
+         </div>
+
+         <div id="playlist">
+            <h2>My Playlist</h2>
+            
+            <!-- Embed YouTube/Spotify Link -->
+            <input type="text" id="mediaInput" placeholder="Paste YouTube or Spotify link">
+            <button onclick="addMedia()">Add Media</button>
+            <div id="mediaContainer"></div>
+        
+            <!-- Upload Video -->
+            <h3>Upload Video</h3>
+            <input type="file" id="videoUpload" accept="video/*" onchange="loadVideo(event)">
+            <video id="uploadedVideo" controls style="display: none; width: 100%;"></video>
+        </div>
+        
+          <script src="script.js"></script>
+    </body>
+</html

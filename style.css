@@ -1,0 +1,197 @@
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #150101;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+/* Make the page into two sections */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+/* Left section (Timer, To-Do, Playlist) */
+.left-section {
+    width: 50%; /* Takes half of the screen */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Right section (Empty box for later) */
+.right-section {
+    width: 50%; /* Takes half of the screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Empty box styling */
+#empty-box {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+/* General styling for all sections */
+#timer, #todo, #playlist, #wallpaper {
+    width: 100px; /* Smaller width */
+    padding: 5px; /* Less padding */
+    background-color: rgba(30, 30, 30, 0.1); /* More transparency */
+    border-radius: 8px; /* Softer rounded corners */
+    margin: 5px auto; /* Less margin */
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.1); /* Softer shadow */
+}
+
+/* Move wallpaper section to bottom-right */
+#wallpaper {
+    position: fixed;
+    bottom: 5px;  /* Lower on the page */
+    right: 5px;   /* Closer to the edge */
+    width: 100px; /* Even smaller */
+    text-align: center;
+    padding: 5px;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Section Styling */
+#todo, #timer {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Timer Styling */
+#time {
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+#timer button {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 12px;
+}
+
+/* Input Field */
+input {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/* to-Do List Box */
+#todo {
+    background-color: #ffa5c6;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 20px auto;
+    box-shadow: 0px 0 px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Input Field */
+input {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Add task button */
+button {
+    background-color: #490202;
+    color: pink;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ff9df5;
+}
+
+/* Task List */
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+/* Task Item */
+li {
+    background-color: #900C3F;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Delete Button */
+li button {
+    background-color: #ffe9fd;
+    border: none;
+    padding: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#playlist {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 20px auto;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+li button:hover {
+    background-color: #271401;
+}
+
+#timer, #todo, #playlist {
+    width: 180px !important;  /* Even smaller */
+    padding: 8px !important;  
+    background-color: rgba(30, 30, 30, 0.5) !important; /* Force transparency */
+    border-radius: 8px !important;
+    margin: 5px auto !important;
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.1) !important;
+}
+
+#todo {
+    font-size: 12px; /* Even smaller for To-Do */
+}
+
+#playlist {
+    font-size: 14px; /* Bigger for Playlist */
+}
+
+#wallpaper {
+    font-size: 10px; /* Smallest for Wallpaper section */
+}
