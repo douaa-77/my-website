@@ -1,60 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Amour's safe space</title>
-        <link rel="stylesheet" href="style.css?v=2">
-    </head>
-    <body>
-        <h2>Hello special people, Welcome to my world</h2>
-        <div class="container">
-            <div class="container">
-                <div class="left-section">
-            
-                </div>
-                <div class="right-section">
-                    <div id="empty-box">Empty Box (For Future)</div>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amour's Safe Space</title>
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="icon" href="icon.png" type="icon-image"/>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1 class="site-name">Amour's Safe Space</h1>
+        <h2 class="welcome-text">Hello special people, Welcome to my world</h2>
+        <img src="books.jpg" alt="books" class="header-image">
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="left-section"></div>
+
+        <!-- Widgets Section -->
+        <div class="widgets">
+            <!-- Snake Game -->
+            <div id="game" class="widget" style="display: none;">
+                <h1>Snake Game</h1>
+                <canvas id="gameCanvas" width="400" height="400"></canvas>
+                <button id="startGame">Start</button>
+                <button id="stopGame">Stop</button>
             </div>
-            <!-- To-Do List Section -->
-            <div id="todo">
-                <h2>To-Do List</h2>
-                <input type="text" id="taskInput" placeholder="Enter a task">
-                <button onclick="addTask()">Add Task</button>
+
+            <!-- Timer -->
+            <div id="timer" class="widget" style="display: none;">
+                <h1>Timer</h1>
+                <p id="timer-display">25:00</p>
+                <button onclick="startTimer()">Start</button>
+                <button onclick="pauseTimer()">Pause</button>
+                <button onclick="addMinutes()">+1 Min</button>
+                <button onclick="subtractMinutes()">-1 Min</button>
+            </div>
+
+            <!-- To-Do List -->
+            <div id="todo" class="widget" style="display: none;">
+                <h1>To-Do List</h1>
+                <input type="text" id="taskInput" placeholder="Add a task">
+                <button onclick="addTask()">➕ Add</button>
                 <ul id="taskList"></ul>
             </div>
-    
-            <div id="wallpaper">
-                <h2>Change Wallpaper</h2>
-                <input type="file" id="wallpaperInput" accept="image/*" onchange="changeWallpaper(event)">
-            </div>
-    
-            <!-- Timer Section -->
-        <div id="timer">
-              <h2>Focus Timer</h2>
-              <p id="time">25:00</p>
-              <button onclick="startTimer()">Start</button>
-              <button onclick="pauseTimer()">Pause</button>
-              <button onclick="resetTimer()">Reset</button>
-              <button onclick="increaseTime()">➕ 1 min</button>
-              <button onclick="decreaseTime()">➖ 1 min</button>
-         </div>
 
-         <div id="playlist">
-            <h2>My Playlist</h2>
-            
-            <!-- Embed YouTube/Spotify Link -->
-            <input type="text" id="mediaInput" placeholder="Paste YouTube or Spotify link">
-            <button onclick="addMedia()">Add Media</button>
-            <div id="mediaContainer"></div>
-        
-            <!-- Upload Video -->
-            <h3>Upload Video</h3>
-            <input type="file" id="videoUpload" accept="video/*" onchange="loadVideo(event)">
-            <video id="uploadedVideo" controls style="display: none; width: 100%;"></video>
+            <!-- Playlist -->
+            <div id="playlist" class="widget" style="display: none;">
+                <h1>Playlist</h1>
+                <input type="text" id="playlistInput" placeholder="Paste a YouTube/Spotify link">
+                <button onclick="addPlaylist()">🎶 Add</button>
+                <div id="playlistContainer"></div>
+            </div>
         </div>
-        
-          <script src="script.js"></script>
-    </body>
-</html
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button class="sidebar-btn" onclick="toggleWidget('game')">🐍</button>
+        <button class="sidebar-btn" onclick="toggleWidget('timer')">⏳</button>
+        <button class="sidebar-btn" onclick="toggleWidget('todo')">📋</button>
+        <button class="sidebar-btn" onclick="toggleWidget('playlist')">🎵</button>
+        <button class="sidebar-btn" onclick="document.getElementById('wallpaperInput').click()">🖼</button>
+<input type="file" id="wallpaperInput" accept="image/*" onchange="changeWallpaper(event)" style="display: none;">
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="snake.js"></script>
+
+</body>
+</html>
+
