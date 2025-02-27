@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Load images
     const snakeImg = new Image();
-    snakeImg.src = "green.png";  // ✅ Corrected variable name
+    snakeImg.src = "green.png";  
 
     const foodImg = new Image();
     foodImg.src = "food.png"; 
@@ -77,4 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("stopGame").addEventListener("click", () => {
         clearInterval(gameInterval);
     });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    let gameCanvas = document.querySelector(".game-widget canvas");
+    if (gameCanvas) {
+        gameCanvas.style.width = "150px"; 
+        gameCanvas.style.height = "150px";
+    }
 });

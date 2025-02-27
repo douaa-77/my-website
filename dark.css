@@ -2,8 +2,8 @@
 /* 🌟 General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: url("light-wallpaper.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background: url("dark-wallpaper.jpg") no-repeat center center fixed;
+    background-size: cover; /* Resize to fit screen */
     background-position: center;
     color: rgb(8, 0, 0);
     margin: 0;
@@ -27,16 +27,15 @@ body {
     font-size: 24px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
-    color: #fff;
+    color: #fff5f5;
     margin-bottom: 1px;
 }
 
 .welcome-text {
     font-size: 18px;
-    color: #f7dceb; /* Lighter color */
+    color: #ebebeb; /* Lighter color */
     margin-bottom: 5px;
-    font-family: 'Times New Roman', Times, serif;
-}
+font-family: cursive;}
 
 .header-image {
     width: 90px; /* Set image width */
@@ -79,6 +78,7 @@ body {
     min-height: 150px;
     width: 100%;
     position: relative;
+
 }
 
 .widget:hover {
@@ -87,7 +87,7 @@ body {
 
 /* 🌟 Buttons */
 button {
-    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    background: linear-gradient(135deg, #36000e, #4b010d);
     color: white;
     border: none;
     padding: 6px 10px;
@@ -98,7 +98,7 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #ff758c, #ffbfda);
+    background: linear-gradient(135deg, #000000, #3d3d3d);
     transform: scale(1.05);
 }
 
@@ -115,7 +115,7 @@ button:hover {
     backdrop-filter: blur(10px);
     padding: 5px;
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(228, 204, 204, 0.2);
 }
 
 .sidebar-btn {
@@ -137,6 +137,7 @@ button:hover {
     background: rgba(255, 255, 255, 0.4);
     transform: scale(1.05);
 }
+
 
 /* 🌟 Timer, To-Do, Playlist, Game Sections */
 #timer, #todo, #playlist, #snake-game {
@@ -168,19 +169,17 @@ button:hover {
 /* 🌟 To-Do List Customization */
 .todo-item {
     display: flex;
-    position: relative;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
     border-radius: 5px;
     background: rgba(51, 1, 1, 0.2);
     margin-bottom: 5px;
-    overflow: hidden;
 }
 
 .check-btn {
-    background: rgb(184, 255, 184);
-    color: rgb(30, 75, 0);
+    background: rgb(1, 44, 1);
+    color: rgb(0, 0, 0);
     border: none;
     padding: 4px;
     border-radius: 2px;
@@ -191,12 +190,12 @@ button:hover {
 }
 
 .check-btn:hover {
-    background: rgb(1, 53, 1);
+    background: rgb(255, 255, 255);
 }
 
 .delete-btn {
-    background: rgb(255, 200, 200);
-    color: rgb(77, 0, 23);
+    background: rgb(224, 207, 207);
+    color: rgb(95, 2, 2);
     border: none;
     padding: 4px;
     border-radius: 2px;
@@ -206,7 +205,7 @@ button:hover {
 }
 
 .delete-btn:hover {
-    background: rgb(112, 14, 39);
+    background: rgb(66, 1, 1);
 }
 .extra-sidebar {
     position: fixed;
@@ -220,7 +219,7 @@ button:hover {
 
 .extra-sidebar .sidebar-btn {
     background: #222;
-    color: white;
+    color: rgb(90, 90, 90);
     border: none;
     padding: 20px;
     cursor: pointer;
@@ -253,7 +252,6 @@ button:hover {
     max-height: 200px;
 }
 
-
 #game-controls {
     display: flex;
     justify-content: center;
@@ -262,7 +260,7 @@ button:hover {
 }
 
 #game-controls button {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(105, 105, 105, 0.589);
     color: white;
     border: none;
     border-radius: 5px;
@@ -272,14 +270,13 @@ button:hover {
 }
 
 #game-controls button:hover {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(206, 206, 206, 0.4);
 }
 
 /* Fix Sidebar Button */
 .sidebar button[data-target="snake-game"] {
-    background: rgb(145, 16, 95);
+    background: rgba(54, 0, 54, 0.425);
 }
-
 
 
 /* Fix Icon Image */
@@ -287,7 +284,6 @@ button:hover {
     width: 20px;
     height: 20px;
 }
-
 
 /* 🎵 Music Player Styling */
 #nowPlaying {
@@ -340,16 +336,37 @@ iframe, audio, video {
 
 :root {
     --bg-color: #ffffff;
-    --text-color: #ffffff;
+    --text-color: #000000;
     --widget-bg: #f0f0f0;
 }
+
+.dark-mode {
+    --bg-color: #050505;
+    --text-color: #130000;
+    --widget-bg: #222;
+    --btn-bg: #333;
+    --btn-hover: #444;
+}
+.dark-mode {
+    background: url("dark-wallpaper.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+}
+
+/* Ensure widgets, sidebar, and header match the theme */
+.widget, .sidebar {
+    background-color: rgba(44, 2, 9, 0.9);
+    color: rgb(255, 255, 255);
+}
+
+   
 
 .widget {
     position: absolute;
     width: 200px;
     height: 150px;
-    background: white;
-    border: 1px solid black;
+    background: rgb(31, 0, 0);
+    border: 1px solid rgb(39, 0, 2);
     padding: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -357,8 +374,8 @@ iframe, audio, video {
 
 .drag-btn {
     display: flex;
-    background: #e9add7;
-    color: rgb(255, 255, 255);
+    background: #f7d7da;
+    color: rgb(44, 0, 0);
     width: 95%;
     justify-content: center;
     align-items: center;
@@ -374,7 +391,7 @@ iframe, audio, video {
 .resizer {
     width: 10px;
     height: 10px;
-    background: rgb(230, 156, 233);
+    background: rgb(245, 214, 216);
     position: absolute;
     bottom: 0;
     right: 0;
@@ -388,7 +405,7 @@ iframe, audio, video {
     position: absolute;
     width: 10px;
     height: 10px;
-    background: #555;
+    background: #000000;
     border-radius: 50%;
     right: 5px;
     bottom: 5px;
@@ -408,49 +425,5 @@ iframe, audio, video {
 #timer.show, #todo.show, #calculator.show, #playlist.show, #snake-game.show {
     max-height: 100px;
 }
-
-#wallpaper-gallery {
-    display: none; /* Hidden by default */
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
-    background: white;
-    border: 1px solid black;
-    width: 320px;
-    max-height: 200px;
-    overflow-y: auto;
-    position: absolute;
-    top: 100px; /* Adjust based on sidebar position */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
-
-.wallpaper-option {
-    width: 100px;
-    height: 70px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.wallpaper-option img.wallpaper-preview {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.wallpaper-option:hover {
-    border: 2px solid #007bff;
-}
-
 
 
