@@ -233,9 +233,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function toggleWidget(widgetId) {
         let widget = document.getElementById(widgetId);
-        if (!widget) return;
-        widget.style.display = widget.style.display === "block" ? "none" : "block";
+        widget.classList.toggle("show");
     }
+    
     window.toggleWidget = toggleWidget;
 
     document.addEventListener("keydown", function (e) {
@@ -354,6 +354,71 @@ window.toggleWallpaperGallery = function () {
     gallery.style.display = gallery.style.display === "none" ? "flex" : "none";
 };
 
+function addStickyNote() {
+    let note = document.createElement("div");
+    note.className = "sticky-note";
+    note.contentEditable = true;
+    note.style.background = "#ffeb3b"; // Yellow by default
+    note.onblur = saveNotes;
+    document.getElementById("notes-container").appendChild(note);
+}
+
+function saveNotes() {
+    localStorage.setItem("notes", document.getElementById("notes-container").innerHTML);
+}
+
+const files = [
+    "book1.pdf", "book2.pdf", "book3.pdf",
+    "book4.pdf", "book5.pdf", "book6.pdf"
+];
+
+function openFile(url) {
+    console.log("Opening file:", url);
+    window.open(url, "_blank"); // Open PDF in new tab
+}
+
+function loadFileGallery() {
+    const gallery = document.getElementById("file-options");
+    gallery.innerHTML = ""; // Clear previous entries
+
+    files.forEach(file => {
+        const div = document.createElement("div");
+        div.classList.add("file-option");
+        div.onclick = () => openFile(file);
+
+        const embed = document.createElement("embed");
+        embed.src = file;
+        embed.type = "application/pdf";
+        embed.width = "100";
+        embed.height = "140";
+
+        div.appendChild(embed);
+        gallery.appendChild(div);
+    });
+}
+
+// Toggle visibility of the gallery
+window.toggleFileGallery = function () {
+    loadFileGallery();
+    const gallery = document.getElementById("file-gallery");
+    gallery.style.display = gallery.style.display === "none" ? "flex" : "none";
+};
+
+// Handle file uploads
+const fileInput = document.getElementById("fileInput");
+if (fileInput) {
+    fileInput.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                files.push(e.target.result); // Add new file
+                loadFileGallery(); // Reload gallery
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+}
 
 
 

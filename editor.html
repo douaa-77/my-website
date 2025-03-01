@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Editor</title>
+    <link rel="stylesheet" href="editor.css"> <!-- Use the same CSS or create a new one -->
+</head>
+<body>
+    <header>
+        <h1>Book Editor</h1>
+        <a href="index.html">Back to Home</a>
+    </header>
+
+    <div class="editor-container">
+        <div class="toolbar">
+            <button id="boldBtn">B</button>
+            <button id="italicBtn">I</button>
+            <button id="underlineBtn">U</button>
+            <button id="headingBtn">H</button>
+            <button id="linkBtn">Link</button>
+            <input type="file" id="imageInput" accept="image/*">
+        </div>
+        
+        <div id="editor" contenteditable="true" class="editor"></div>
+        
+        <div class="controls">
+            <select id="fontSelect">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+            </select>
+            
+            <select id="themeSelect">
+                <option value="white">Light</option>
+                <option value="black">Dark</option>
+            </select>
+
+            <input type="file" id="coverInput" accept="image/*">
+            <img id="bookCover" alt="Book Cover">
+        </div>
+
+        <p id="wordCount">Word Count: 0</p>
+        <button id="exportBtn">Export as HTML</button>
+    </div>
+
+    <script src="editor.js"></script>
+</body>
+</html>

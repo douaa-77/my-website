@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat & Club</title>
+    <link rel="stylesheet" href="club.css">
+</head>
+<body>
+    <div class="club-page">
+        <h2>Book Clubs & Discussions</h2>
+        <select id="themeSelector"><option value="light">Light</option><option value="dark">Dark</option></select>
+        <div class="club-section">
+            <input type="text" id="clubNameInput" placeholder="Enter club name">
+            <button id="createClubBtn">Create Club</button>
+            <div id="clubContainer"></div>
+        </div>
+
+        <div class="discussion-section">
+            <h3>Discussion</h3>
+            <div id="discussionContainer"></div>
+            <input type="text" id="postInput" placeholder="Write something..." />
+            <button id="postBtn">Post</button>
+        </div>
+
+        <div class="poll-section">
+            <h3>Create a Poll</h3>
+            <input type="text" id="pollQuestionInput" placeholder="Enter poll question">
+            <input type="text" id="pollOptionsInput" placeholder="Options (comma-separated)">
+            <button id="createPollBtn">Create Poll</button>
+            <div id="pollContainer"></div>
+        </div>
+    </div>
+
+    <script src="club.js"></script>
+</body>
+</html>
