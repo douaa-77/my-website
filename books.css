@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Light Mode (Default) */
+
+body {
+    font-family: serif;
+    background: url('light-bg.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    color: #2b0101;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.title.light-mode {
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: serif;
+    color: #330001;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none;
+    background: #facbcb;
+    color: white; 
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.back-btn.light-mode {
+    background: #facbcb;
+    color: white;  
+}
+.back-btn:hover {
+    background: #fc8686;
+    transform: scale(1.05);
+}
+
+.bookshelf-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.book {
+    background: rgb(255, 241, 248);
+    border-color: #300101;
+    border-radius: 10px;
+    padding: 10px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(212, 111, 136, 0.2);
+    transition: 0.3s;
+}
+
+.book:hover {
+    transform: scale(1.05);
+}
+
+.book img {
+    width: 100%;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.book-title.light-mode {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #330000;
+    margin: 10px 0;
+}
+
+.open-btn {
+    background: #facbcb;
+    color: rgb(173, 116, 130);
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.open-btn:hover {
+    background: #fc8686;
+    transform: scale(1.05);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #facbcb;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+
+.theme-toggle:hover {
+    background: #ffa3a3;
+    transform: scale(1.05);
+}
+
+/* User Bookshelf Styling */
+#userBookshelf {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Book Style */
+.user-book {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 120px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.user-book button {
+    margin-top: 5px;
+    background: #ff6363;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.user-book button:hover {
+    background: #e05252;
+}
+
+/* Match Dark Mode */
+body.dark-mode .user-book {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+.delete-btn {
+    border: none;
+    background: none;
+    color: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 5px; /* Small space between buttons */
+}
+
+.delete-btn:hover {
+    color: rgb(0, 0, 0); /* Optional: Makes "X" red on hover */
+}
+
+
+
+
+
+/* Dark Mode */
+.title.dark-mode {
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: serif;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+body.dark-mode {
+    background: url('dark-bg.jpg') center center fixed;
+    background-repeat: repeat;
+    color: #e2c1c1;
+}
+
+body.dark-mode .book {
+    background: #240000;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.185);
+}
+
+.back-btn.dark-mode {
+
+    background: #240000;
+    color: white;
+   
+}
+
+.back-btn:hover.dark-mode {
+    background: #926f6f;
+    transform: scale(1.05);
+}
+
+.book-title.dark-mode {
+    font-size: 1.1rem;
+    font-weight: (121, 92, 92)00;
+    color: #ffe2e2;
+    margin: 10px 0;
+}
+
+body.dark-mode .open-btn {
+    background: #e2c1c1;
+    color: #2b0000;
+}
+
+body.dark-mode .open-btn:hover {
+    background: #ecb5b5;
+}
+
+body.dark-mode .theme-toggle {
+    background: rgb(44, 0, 0);
+    color: #ffffff;
+}
+

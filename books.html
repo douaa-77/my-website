@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="books.css">
+</head>
+<body>
+    <button class="back-btn" onclick="goBack()">Home</button>
+    <h1 class="title">My Bookshelf</h1>
+    <div class="bookshelf-container" id="bookshelf"></div>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+
+    <h2>Your Books</h2>
+    <input type="file" id="uploadUserBook" accept=".pdf">
+    <button onclick="addUserBook()">Add Book</button>
+
+    <div id="userBookshelf" class="bookshelf"></div>
+
+    
+    
+    <script src="books.js"></script>
+</body>
+</html>
