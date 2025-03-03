@@ -2,7 +2,7 @@
 /* 🌟 General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: url('images/dark.jpg') no-repeat center center fixed;
+    background: url('dark.jpg') no-repeat center center fixed;
     background-size: cover; /* Resize to fit screen */
     background-position: center;
     color: rgb(8, 0, 0);
