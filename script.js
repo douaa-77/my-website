@@ -274,9 +274,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Wallpaper Gallery
     const wallpapers = [
-        "images/wallpaper1.jpg", "images/wallpaper2.jpg", "images/wallpaper3.jpg",
-        "images/wallpaper4.jpg", "images/wallpaper5.jpg", "images/wallpaper6.jpg",
-        "images/wallpaper7.jpg", "images/wallpaper8.jpg", "images/wallpaper9.jpg"
+        "wallpaper1.jpg", "wallpaper2.jpg", "wallpaper3.jpg",
+        "wallpaper4.jpg", "wallpaper5.jpg", "wallpaper6.jpg",
+        "wallpaper7.jpg", "wallpaper8.jpg", "wallpaper9.jpg"
     ];
 
     function loadWallpaperGallery() {
