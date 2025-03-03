@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css?v=2">
     <link rel="icon" href="favicon.png" type="image/png">
     <link id="themeStylesheet" rel="stylesheet" href="style.css">
+    <link id="theme-link" rel="stylesheet" href="light.css">
 </head>
 <body>
 
@@ -21,8 +22,9 @@
 
         <!-- Right Sidebar (Navigation) -->
         <aside class="right-sidebar">
-            <button onclick="location.href='editor.html'">✍️ Writing</button>
-            <button onclick="location.href='books.html'">📚 Books</button>
+            <button onclick="location.href='writing/editor.html'">Writing</button>
+            <button onclick="location.href='books/books.html'"></button>
+            <button onclick="location.href='art/art.html'"> Art</button>
             <button onclick="location.href='chat.html'">💬 Chat</button>
             <button onclick="location.href='index.html'">🏠 Home</button>
         </aside>
@@ -71,11 +73,7 @@
                     <div id="playlistContent"></div>
                 </div>
 
-                <!-- Book Gallery Widget -->
-                <div id="bookWidget" class="widget draggable resizable" style="display: none;">
-                    <div class="widget-header">📚 Book Gallery</div>
-                    <div id="file-gallery"></div>
-                </div>
+            
             </div>
         </div>
 
@@ -85,7 +83,6 @@
             <button class="sidebar-btn" onclick="toggleWidget('timerWidget')">⏳</button>
             <button class="sidebar-btn" onclick="toggleWidget('todoWidget')">📋</button>
             <button class="sidebar-btn" onclick="toggleWidget('playlistWidget')">🎵</button>
-            <button class="sidebar-btn" onclick="toggleWidget('bookWidget')">📚</button>
             <div id="notes-container"></div>
             <button onclick="addStickyNote()">➕ Note</button>
             <input type="file" id="wallpaper-input" accept="image/*" style="display: none;">

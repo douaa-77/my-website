@@ -1,32 +1,4 @@
 console.log("script.js is loaded correctly.");
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Script loaded!");
-
-    let themeLink = document.getElementById("themeStylesheet");
-    let modeBtn = document.getElementById("darkModeToggle");
-
-    if (!themeLink) {
-        console.error("Theme stylesheet not found!");
-        return;
-    }
-    if (!modeBtn) {
-        console.error("Dark mode button not found!");
-        return;
-    }
-
-    let savedTheme = localStorage.getItem("theme") || "light";
-    themeLink.setAttribute("href", savedTheme === "dark" ? "dark.css" : "style.css");
-    modeBtn.innerText = savedTheme === "dark" ? "☀️" : "🌙";
-
-    function toggleDarkMode() {
-        let isDark = themeLink.getAttribute("href") === "style.css";
-        themeLink.setAttribute("href", isDark ? "dark.css" : "style.css");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-        modeBtn.innerText = isDark ? "☀️" : "🌙";
-    }
-
-    modeBtn.addEventListener("click", toggleDarkMode);
-});
 
 /* 🌟 Toggle Widgets */
 function toggleWidget(widgetId) {
@@ -248,11 +220,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const wallpaperInput = document.getElementById("wallpaper-input");
-    const gallery = document.getElementById("wallpaper-gallery");
+    console.log("Script loaded!");
 
-    const lightWallpaper = "light.jpg";
-    const darkWallpaper = "dark.jpg"; 
+    let themeLink = document.getElementById("themeStylesheet");
+    let modeBtn = document.getElementById("darkModeToggle");
+
+    if (!themeLink) {
+        console.error("Theme stylesheet not found!");
+        return;
+    }
+    if (!modeBtn) {
+        console.error("Dark mode button not found!");
+        return;
+    }
+
+    const lightWallpaper = "images/light.jpg";
+    const darkWallpaper = "images/dark.jpg";
 
     function getDefaultWallpaper() {
         const theme = localStorage.getItem("theme") || "light";
@@ -260,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function setWallpaper(url) {
-        console.log("Applying wallpaper:", url); // Debugging
+        console.log("Applying wallpaper:", url);
         document.body.style.backgroundImage = `url('${url}')`;
         document.body.style.backgroundSize = "cover";
         document.body.style.backgroundPosition = "center";
@@ -273,23 +256,64 @@ document.addEventListener("DOMContentLoaded", function () {
         if (savedWallpaper) {
             setWallpaper(savedWallpaper);
         } else {
-            setWallpaper(getDefaultWallpaper()); // Use light/dark default
+            setWallpaper(getDefaultWallpaper());
         }
     }
 
+    function toggleDarkMode() {
+        let isDark = themeLink.getAttribute("href") === "style.css";
+        themeLink.setAttribute("href", isDark ? "dark.css" : "style.css");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        modeBtn.innerText = isDark ? "☀️" : "🌙";
+
+        // Set the default wallpaper for the new theme
+        setWallpaper(getDefaultWallpaper());
+    }
+
+    modeBtn.addEventListener("click", toggleDarkMode);
+
+    // Wallpaper Gallery
+    const wallpapers = [
+        "images/wallpaper1.jpg", "images/wallpaper2.jpg", "images/wallpaper3.jpg",
+        "images/wallpaper4.jpg", "images/wallpaper5.jpg", "images/wallpaper6.jpg",
+        "images/wallpaper7.jpg", "images/wallpaper8.jpg", "images/wallpaper9.jpg"
+    ];
+
+    function loadWallpaperGallery() {
+        const galleryContainer = document.getElementById("wallpaper-options");
+        if (!galleryContainer) return;
+        galleryContainer.innerHTML = "";
+
+        wallpapers.forEach(wallpaper => {
+            const div = document.createElement("div");
+            div.classList.add("wallpaper-option");
+            div.onclick = () => setWallpaperFromGallery(wallpaper);
+
+            const img = document.createElement("img");
+            img.src = wallpaper;
+            img.alt = "Wallpaper";
+            img.classList.add("wallpaper-preview");
+
+            div.appendChild(img);
+            galleryContainer.appendChild(div);
+        });
+    }
+
     window.toggleWallpaperGallery = function () {
-        loadWallpaperGallery(); // Load wallpapers dynamically
         const gallery = document.getElementById("wallpaper-gallery");
-        gallery.style.display = gallery.style.display === "none" ? "flex" : "none";
+        if (!gallery) return;
+        loadWallpaperGallery();
+        gallery.style.display = gallery.style.display === "none" || gallery.style.display === "" ? "flex" : "none";
     };
-    
 
     window.setWallpaperFromGallery = function (wallpaper) {
-        console.log("Setting wallpaper from gallery:", wallpaper); // Debugging
+        console.log("Setting wallpaper from gallery:", wallpaper);
         setWallpaper(wallpaper);
         toggleWallpaperGallery();
     };
 
+    // Custom wallpaper upload
+    const wallpaperInput = document.getElementById("wallpaper-input");
     if (wallpaperInput) {
         wallpaperInput.addEventListener("change", function (event) {
             const file = event.target.files[0];
@@ -303,132 +327,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-
-
+    // Restore wallpaper on page load
     restoreWallpaper();
-
-    if (modeBtn) {
-        modeBtn.addEventListener("click", function () {
-            setTimeout(() => {
-                const theme = themeLink.getAttribute("href").includes("dark.css") ? "dark" : "light";
-                localStorage.setItem("theme", theme);
-                
-                if (!localStorage.getItem("wallpaper")) {
-                    setWallpaper(getDefaultWallpaper());
-                }
-            }, 100);
-        });
-    }
 });
-
-const wallpapers = [
-    "wallpaper1.jpg", "wallpaper2.jpg", "wallpaper3.jpg",
-    "wallpaper4.jpg", "wallpaper5.jpg", "wallpaper6.jpg",
-    "wallpaper7.jpg", "wallpaper8.jpg", "wallpaper9.jpg"
-];
-
-function loadWallpaperGallery() {
-    const gallery = document.getElementById("wallpaper-options");
-    gallery.innerHTML = ""; // Clear previous wallpapers
-
-    wallpapers.forEach(wallpaper => {
-        const div = document.createElement("div");
-        div.classList.add("wallpaper-option");
-        div.onclick = () => setWallpaperFromGallery(wallpaper);
-
-        const img = document.createElement("img");
-        img.src = wallpaper; // Use actual wallpaper as preview
-        img.alt = "Wallpaper";
-        img.classList.add("wallpaper-preview"); // Add CSS class for styling
-
-        div.appendChild(img);
-        gallery.appendChild(div);
-    });
-}
-
-
-// Load wallpapers when the gallery is opened
-window.toggleWallpaperGallery = function () {
-    loadWallpaperGallery();
-    const gallery = document.getElementById("wallpaper-gallery");
-    gallery.style.display = gallery.style.display === "none" ? "flex" : "none";
-};
-
-function addStickyNote() {
-    let note = document.createElement("div");
-    note.className = "sticky-note";
-    note.contentEditable = true;
-    note.style.background = "#ffeb3b"; // Yellow by default
-    note.onblur = saveNotes;
-    document.getElementById("notes-container").appendChild(note);
-}
-
-function saveNotes() {
-    localStorage.setItem("notes", document.getElementById("notes-container").innerHTML);
-}
-
-const files = [
-    "book1.pdf", "book2.pdf", "book3.pdf",
-    "book4.pdf", "book5.pdf", "book6.pdf"
-];
-
-function openFile(url) {
-    console.log("Opening file:", url);
-    window.open(url, "_blank"); // Open PDF in new tab
-}
-
-function loadFileGallery() {
-    const gallery = document.getElementById("file-options");
-    gallery.innerHTML = ""; // Clear previous entries
-
-    files.forEach(file => {
-        const div = document.createElement("div");
-        div.classList.add("file-option");
-        div.onclick = () => openFile(file);
-
-        const embed = document.createElement("embed");
-        embed.src = file;
-        embed.type = "application/pdf";
-        embed.width = "100";
-        embed.height = "140";
-
-        div.appendChild(embed);
-        gallery.appendChild(div);
-    });
-}
-
-// Toggle visibility of the gallery
-window.toggleFileGallery = function () {
-    loadFileGallery();
-    const gallery = document.getElementById("file-gallery");
-    gallery.style.display = gallery.style.display === "none" ? "flex" : "none";
-};
-
-// Handle file uploads
-const fileInput = document.getElementById("fileInput");
-if (fileInput) {
-    fileInput.addEventListener("change", function (event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                files.push(e.target.result); // Add new file
-                loadFileGallery(); // Reload gallery
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-}
-
-
-
-
-
-
-
-
-
-
 
 
 

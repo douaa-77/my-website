@@ -2,9 +2,10 @@
 /* 🌟 General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: url("light-wallpaper.jpg") no-repeat center center fixed;
+    background: url('images/light.jpg') no-repeat center center fixed;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     color: rgb(8, 0, 0);
     margin: 0;
     padding: 0;
@@ -405,7 +406,7 @@ iframe, audio, video {
     transition: max-height 0.5s ease-in-out;
 }
 
-#timer.show, #todo.show, #calculator.show, #playlist.show, #snake-game.show {
+#timer.show, #todo.show, #playlist.show, #snake-game.show {
     max-height: 100px;
 }
 
@@ -419,7 +420,7 @@ iframe, audio, video {
     width: 320px;
     max-height: 200px;
     overflow-y: auto;
-    position: absolute;
+    position: fixed;
     top: 100px; /* Adjust based on sidebar position */
     left: 50%;
     transform: translateX(-50%);
@@ -463,57 +464,6 @@ iframe, audio, video {
     transform: scale(1);
 }
 
-/* 📚 Books Gallery Styling */
-#books-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 90%;
-    margin: 20px auto;
-    overflow-y: auto;
-    max-height: 400px;
-}
-
-.book-item {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.book-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-.book-item img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.book-title {
-    font-size: 14px;
-    font-weight: bold;
-    color: rgb(20, 20, 20);
-    margin-top: 8px;
-}
-
-.book-author {
-    font-size: 12px;
-    color: rgb(50, 50, 50);
-    font-style: italic;
-}
 
 /* Layout Fix */
 .container {

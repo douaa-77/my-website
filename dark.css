@@ -2,7 +2,7 @@
 /* 🌟 General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: url("dark-wallpaper.jpg") no-repeat center center fixed;
+    background: url('images/dark.jpg') no-repeat center center fixed;
     background-size: cover; /* Resize to fit screen */
     background-position: center;
     color: rgb(8, 0, 0);
@@ -348,7 +348,7 @@ iframe, audio, video {
     --btn-hover: #444;
 }
 .dark-mode {
-    background: url("dark-wallpaper.jpg") no-repeat center center fixed;
+    background: url("images/dark.jpg") no-repeat center center fixed;
     background-size: cover;
     color: rgb(0, 0, 0);
 }
