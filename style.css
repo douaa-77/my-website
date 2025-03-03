@@ -2,7 +2,7 @@
 /* 🌟 General Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: url('images/light.jpg') no-repeat center center fixed;
+    background: url('light.jpg') no-repeat center center fixed;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
