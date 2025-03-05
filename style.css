@@ -1,11 +1,8 @@
-
 /* 🌟 General Styling */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: url('light.jpg') no-repeat center center fixed;
+    font-family: serif;
+    background: url('images/light.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     color: rgb(8, 0, 0);
     margin: 0;
     padding: 0;
@@ -15,99 +12,117 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+
+/* Profile Icon */
+.profile-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin: 10px auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.profile-icon:hover {
+    transform: scale(1.1);
+}
+
+  
+  
+
+/* Header */
 .header {
-    text-align: center; /* Center everything */
+    text-align: center;
     position: absolute;
-    top: 5px; /* Push it up */
+    top: 5px;
     left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
+    transform: translateX(-50%);
     width: 100%;
 }
-
 .site-name {
     font-size: 24px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: serif;
     font-weight: bold;
     color: #fff;
-    margin-bottom: 1px;
 }
-
 .welcome-text {
     font-size: 18px;
-    color: #f7dceb; /* Lighter color */
-    margin-bottom: 5px;
-    font-family: 'Times New Roman', Times, serif;
+    color: #ffffff;
+    font-family: serif;
 }
-
 .header-image {
-    width: 90px; /* Set image width */
-    display: block; /* Make it a block element */
-    margin: 0px auto; /* Center it horizontally */
+    width: 90px;
+    display: block;
+    margin: 0 auto;
 }
 
+/* Auth Links */
+.auth-links {
+    text-align: center;
+    margin-top: 10px;
+}
+.auth-links a {
+    color: white;
+    text-decoration: underline;
+    font-size: 14px;
+    margin: 0 10px;
+    display: inline-block;
+}
+.auth-links a:hover {
+    text-decoration: none;
+}
 
-/* 🌟 Main Container */
+/* Main Container */
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two sections */
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     width: 90%;
     max-width: 1200px;
 }
 
-/* 🌟 Left & Right Sections */
-.left-section {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.right-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-/* 🌟 Widget Styling */
+/* Widgets */
 .widget {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s;
     min-height: 150px;
     width: 100%;
-    position: relative;
 }
-
 .widget:hover {
     transform: scale(1.02);
 }
 
-/* 🌟 Buttons */
+/* Buttons */
 button {
     background: linear-gradient(135deg, #ff7eb3, #ff758c);
     color: white;
+    width: 80px;
     border: none;
     padding: 6px 10px;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s ease;
+    transition: 0.3s;
 }
-
 button:hover {
     background: linear-gradient(135deg, #ff758c, #ffbfda);
     transform: scale(1.05);
 }
 
-/* 🌟 Sidebar */
+/* Sidebar */
 .sidebar {
-    width: 50px;
+    width: 80px;
     position: fixed;
-    left: 10px;
+    left: 20px;
     top: 20%;
     display: flex;
     flex-direction: column;
@@ -119,96 +134,7 @@ button:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.sidebar-btn {
-    background: rgba(255, 244, 244, 0.3);
-    color: rgb(158, 158, 158);
-    border: none;
-    padding: 4px;
-    border-radius: 10px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.sidebar-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
-}
-
-/* 🌟 Timer, To-Do, Playlist, Game Sections */
-#timer, #todo, #playlist, #snake-game {
-    display: none;
-    opacity: 1;
-    font-size: 10px;
-    transition: all;
-    width: 100px;
-    max-height: 50px;
-    overflow: hidden;
-}
-
-.show {
-    display: block !important;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
-#timer-display {
-    font-size: 24px; 
-    font-weight: bold;
-    margin-top: 10px;
-    display: block; /* Ensures it's on a new line */
-    text-align: center;
-    min-width: 80px; /* Prevents shrinking */
-}
-
-
-/* 🌟 To-Do List Customization */
-.todo-item {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    border-radius: 5px;
-    background: rgba(51, 1, 1, 0.2);
-    margin-bottom: 5px;
-    overflow: hidden;
-}
-
-.check-btn {
-    background: rgb(184, 255, 184);
-    color: rgb(30, 75, 0);
-    border: none;
-    padding: 4px;
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 8px;
-    transition: 0.3s;
-
-}
-
-.check-btn:hover {
-    background: rgb(1, 53, 1);
-}
-
-.delete-btn {
-    background: rgb(255, 200, 200);
-    color: rgb(77, 0, 23);
-    border: none;
-    padding: 4px;
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 8px;
-    transition: 0.3s;
-}
-
-.delete-btn:hover {
-    background: rgb(112, 14, 39);
-}
+/* Extra Sidebar */
 .extra-sidebar {
     position: fixed;
     top: 40%;
@@ -218,296 +144,56 @@ button:hover {
     flex-direction: column;
     gap: 50px;
 }
-
 .extra-sidebar .sidebar-btn {
-    background: #222;
-    color: white;
+    background: #eea2af;
+    color: rgb(255, 255, 255);
     border: none;
     padding: 20px;
     cursor: pointer;
     border-radius: 5px;
 }
-
 .extra-sidebar .sidebar-btn:hover {
     background: #b9b9b9;
 }
 
-/* 🌟 Snake Game */
+/* Snake Game */
 #game {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Center everything */
+    align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 90%;
     text-align: center;
-    margin-top: 20px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .game-widget canvas {
-    width: 100% !important;  
-    height: auto !important;
-    max-width: 200px;  /* Adjust the size as needed */
-    max-height: 200px;
+    width: 100%;
+    max-width: 150px;
+    max-height: 150px;
 }
 
-
-#game-controls {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-#game-controls button {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-#game-controls button:hover {
-    background: rgba(255, 255, 255, 0.4);
-}
-
-/* Fix Sidebar Button */
-.sidebar button[data-target="snake-game"] {
-    background: rgb(145, 16, 95);
-}
-
-
-
-/* Fix Icon Image */
-.icon-img {
-    width: 20px;
-    height: 20px;
-}
-
-
-/* 🎵 Music Player Styling */
+/* Music Player */
 #nowPlaying {
     text-align: center;
-    margin: 10px auto;
     padding: 10px;
     max-width: 300px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.music-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 250px;
-    margin: auto;
-}
-
-iframe, audio, video {
-    width: 100%;
-    border-radius: 5px;
-}
-
-/* 🎵 Draggable Music Player */
-#nowPlaying {
-    position: relative;
-    top: 80px;  /* Default position */
-    left: 50px; /* Default position */
-    width: 300px;
-    cursor: grab;
     background: rgba(0, 0, 0, 0.2);
-    padding: 10px;
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    cursor: grab;
 }
-
 #nowPlaying:active {
     cursor: grabbing;
 }
 
-#playlistContainer li {
-    list-style: none;
-    padding: 5px;
-    margin: 5px 0;
-    background: white;
-    border-radius: 5px;
-}
-
+/* Global Variables */
 :root {
     --bg-color: #ffffff;
     --text-color: #ffffff;
     --widget-bg: #f0f0f0;
 }
-
-.widget {
-    position: absolute;
-    width: 200px;
-    height: 150px;
-    background: white;
-    border: 1px solid black;
-    padding: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
-
-.drag-btn {
-    display: flex;
-    background: #e9add7;
-    color: rgb(255, 255, 255);
-    width: 95%;
-    justify-content: center;
-    align-items: center;
-    width: 95%; /* Make it stretch across */
-    text-align: center;
-    font-weight: bold;
-    padding: 8px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    cursor: grab;
-}
-
-.resizer {
-    width: 10px;
-    height: 10px;
-    background: rgb(230, 156, 233);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    cursor: nwse-resize;
-    border-radius: 50%;
-}
-
-
-.resizable::after {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #555;
-    border-radius: 50%;
-    right: 5px;
-    bottom: 5px;
-    cursor: nwse-resize;
-}
-
-.hidden {
-    display: none;
-}
-
-#timer, #todo, #calculator, #playlist, #snake-game {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
-}
-
-#timer.show, #todo.show, #playlist.show, #snake-game.show {
-    max-height: 100px;
-}
-
-#wallpaper-gallery {
-    display: none; /* Hidden by default */
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
-    background: white;
-    border: 1px solid black;
-    width: 320px;
-    max-height: 200px;
-    overflow-y: auto;
-    position: fixed;
-    top: 100px; /* Adjust based on sidebar position */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
-
-.wallpaper-option {
-    width: 100px;
-    height: 70px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.wallpaper-option img.wallpaper-preview {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.wallpaper-option:hover {
-    border: 2px solid #007bff;
-}
-
-.widget {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    opacity: 0;
-    transform: scale(0.9);
-}
-
-.widget.show {
-    opacity: 1;
-    transform: scale(1);
-}
-
-
-/* Layout Fix */
-.container {
-    display: flex;
-    width: 100%;
-}
-
-/* Right Sidebar (Navigation) */
-.right-sidebar {
-    width: 90px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    right: 0;
-    top: 0;
-    height: 100vh;
-    padding-top: 20px;
-}
-
-
-
-.right-sidebar button:hover {
-    background: #444;
-}
-
-/* Adjust content so it doesn't get hidden */
-.content {
-    margin-right: 220px;
-    padding: 20px;
-    flex-grow: 1;
-}
-
-/* Left Sidebar (Widgets Toggle) */
-.left-sidebar {
-    width: 80px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-}
-
 

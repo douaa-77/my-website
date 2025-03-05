@@ -203,13 +203,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function toggleWidget(widgetId) {
-        let widget = document.getElementById(widgetId);
-        widget.classList.toggle("show");
-    }
-    
-    window.toggleWidget = toggleWidget;
-
     document.addEventListener("keydown", function (e) {
         if (e.key === " " && (isDragging || isResizing)) {
             e.preventDefault();
@@ -219,6 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/* 🌟 Dark Mode and Wallpaper Logic */
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script loaded!");
 
@@ -272,64 +266,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     modeBtn.addEventListener("click", toggleDarkMode);
 
-    // Wallpaper Gallery
-    const wallpapers = [
-        "wallpaper1.jpg", "wallpaper2.jpg", "wallpaper3.jpg",
-        "wallpaper4.jpg", "wallpaper5.jpg", "wallpaper6.jpg",
-        "wallpaper7.jpg", "wallpaper8.jpg", "wallpaper9.jpg"
-    ];
-
-    function loadWallpaperGallery() {
-        const galleryContainer = document.getElementById("wallpaper-options");
-        if (!galleryContainer) return;
-        galleryContainer.innerHTML = "";
-
-        wallpapers.forEach(wallpaper => {
-            const div = document.createElement("div");
-            div.classList.add("wallpaper-option");
-            div.onclick = () => setWallpaperFromGallery(wallpaper);
-
-            const img = document.createElement("img");
-            img.src = wallpaper;
-            img.alt = "Wallpaper";
-            img.classList.add("wallpaper-preview");
-
-            div.appendChild(img);
-            galleryContainer.appendChild(div);
-        });
-    }
-
-    window.toggleWallpaperGallery = function () {
-        const gallery = document.getElementById("wallpaper-gallery");
-        if (!gallery) return;
-        loadWallpaperGallery();
-        gallery.style.display = gallery.style.display === "none" || gallery.style.display === "" ? "flex" : "none";
-    };
-
-    window.setWallpaperFromGallery = function (wallpaper) {
-        console.log("Setting wallpaper from gallery:", wallpaper);
-        setWallpaper(wallpaper);
-        toggleWallpaperGallery();
-    };
-
-    // Custom wallpaper upload
-    const wallpaperInput = document.getElementById("wallpaper-input");
-    if (wallpaperInput) {
-        wallpaperInput.addEventListener("change", function (event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    setWallpaper(e.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-    }
-
-    // Restore wallpaper on page load
     restoreWallpaper();
 });
-
-
 

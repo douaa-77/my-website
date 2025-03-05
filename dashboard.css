@@ -1,0 +1,87 @@
+:root {
+  --bg-dark: #1f0000;
+  --bg-light: #dfdfdf;
+  --text-dark: #330000;
+  --text-light: #333;
+  --primary-color: #220105;
+  --secondary-color: #e0c7c7;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Default Dark Mode */
+body {
+  font-family: serif;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode */
+body.light-theme {
+  background-color: #fad9df;
+  color: #220105;
+}
+
+/* Profile Container */
+.profile-container {
+  max-width: 400px;
+  height: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background: var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.light-theme .profile-container {
+  background: #f5f5f5;
+}
+
+/* Profile Picture */
+#profilePic {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  margin-bottom: 10px;
+}
+
+/* Typography */
+h2, p {
+  margin: 5px 0;
+}
+
+/* Buttons */
+button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Light Theme Buttons */
+.light-theme button {
+  background: var(--text-dark);
+  color: white;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+

@@ -1,0 +1,158 @@
+/* General body styling */
+body {
+    font-family: serif;
+    background-color: #fde4e4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Chat container */
+.chat-container {
+    width: 800px; /* Width of the chat container */
+    height: 600px; /* Height of the chat container */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat header */
+.chat-header {
+    background-color: #330000;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Chat box where messages appear */
+#chat-box {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto; /* Enables scrolling */
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #330000;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Chat messages */
+.message {
+    margin-bottom: 10px;
+}
+
+/* Input area (username and message input fields) */
+.chat-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-top: 2px solid #290000;
+}
+
+.chat-input {
+    width: 70%;
+    padding: 8px;
+    font-size: 22px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.chat-button {
+    width: 20%;
+    padding: 10px;
+    background-color: #2e0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-button:hover {
+    background-color: #662323;
+}
+
+/* Styling the username input next to the message input */
+.username-container {
+    display: flex;
+    align-items: center;
+}
+
+#username {
+    width: 60%; /* Smaller width for username input */
+    padding: 8px;
+    margin-right: 10px;
+    font-size: 17px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#sendMessageBtn {
+    width: 30%; /* Adjust the width of the send button */
+}
+
+/* Small styling adjustments */
+.chat-footer input, .chat-footer button {
+    font-size: 14px;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 500px) {
+    .chat-container {
+        width: 100%;
+        height: 90vh;
+    }
+
+    .chat-footer {
+        flex-direction: column;
+    }
+
+    .chat-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .chat-button {
+        width: 100%;
+    }
+}
+
+
+/* Dark Mode */
+body.dark {
+    --chat-bg: #1a0000;
+    --message-bg: #380000;
+    --message-text: #ffffff;
+    --username-color: #ffd3e0;
+    --file-link: #be3c3c;
+    --file-link-hover: #b62443;
+    --input-bg: #222;
+    --input-border: #555;
+    --text-color: #ffffff;
+}
+
+body.dark .chat-container {
+    background: var(--chat-bg);
+}
+
+body.dark .chat-header {
+    background: #330000;
+    color: #ffdce5;
+}
+
+body.dark .chat-footer {
+    background: #330000;
+}
+
+body.dark .chat-button {
+    background: #2c0000;
+}
+
+body.dark .chat-button:hover {
+    background: #aa1212;
+}
