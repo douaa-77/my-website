@@ -1,8 +1,11 @@
+
 /* 🌟 General Styling */
 body {
     font-family: serif;
     background: url('images/light.jpg') no-repeat center center fixed;
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: rgb(8, 0, 0);
     margin: 0;
     padding: 0;
@@ -12,96 +15,129 @@ body {
     height: 100vh;
     overflow: hidden;
 }
-
-/* Profile Icon */
 .profile-icon {
-    width: 45px;
-    height: 45px;
+    display: block;
+    width: 40px; /* Small size */
+    height: 40px;
     border-radius: 50%;
-    margin: 10px auto;
+    overflow: hidden;
+    margin: 10px auto; /* Adjust margin to position it well */
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease-in-out;
 }
+
 .profile-icon img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
 }
+
 .profile-icon:hover {
     transform: scale(1.1);
 }
 
-  
-  
 
-/* Header */
 .header {
-    text-align: center;
+    text-align: center; /* Center everything */
     position: absolute;
-    top: 5px;
+    top: 5px; /* Push it up */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Center horizontally */
     width: 100%;
 }
+
+
+
+
 .site-name {
     font-size: 24px;
-    font-family: serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
     color: #fff;
-}
-.welcome-text {
-    font-size: 18px;
-    color: #ffffff;
-    font-family: serif;
-}
-.header-image {
-    width: 90px;
-    display: block;
-    margin: 0 auto;
+    margin-bottom: 1px;
 }
 
-/* Auth Links */
-.auth-links {
+.welcome-text {
+    font-size: 18px;
+    color: #f7dceb; /* Lighter color */
+    margin-bottom: 5px;
+    font-family: serif;
+}
+
+.header-image {
+    width: 90px; /* Set image width */
+    display: block; /* Make it a block element */
+    margin: 0px auto; /* Center it horizontally */
+}
+
+.container {
+    text-align: center;
+  }
+  
+  .auth-links {
     text-align: center;
     margin-top: 10px;
+    position: relative;
+    z-index: 10;
 }
+
 .auth-links a {
     color: white;
     text-decoration: underline;
     font-size: 14px;
+    cursor: pointer;
     margin: 0 10px;
     display: inline-block;
+    pointer-events: auto; /* Ensures links are clickable */
 }
+
 .auth-links a:hover {
     text-decoration: none;
 }
 
-/* Main Container */
+
+
+/* 🌟 Main Container */
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Two sections */
     gap: 20px;
     width: 90%;
     max-width: 1200px;
 }
 
-/* Widgets */
+/* 🌟 Left & Right Sections */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.right-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 🌟 Widget Styling */
 .widget {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
+    transition: all 0.3s ease-in-out;
     min-height: 150px;
     width: 100%;
+    position: relative;
 }
 .widget:hover {
     transform: scale(1.02);
 }
 
-/* Buttons */
+/* 🌟 Buttons */
 button {
     background: linear-gradient(135deg, #ff7eb3, #ff758c);
     color: white;
@@ -111,14 +147,15 @@ button {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
+
 button:hover {
     background: linear-gradient(135deg, #ff758c, #ffbfda);
     transform: scale(1.05);
 }
 
-/* Sidebar */
+/* 🌟 Sidebar */
 .sidebar {
     width: 80px;
     position: fixed;
@@ -134,7 +171,78 @@ button:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Extra Sidebar */
+
+
+/* 🌟 Timer, To-Do, Playlist, Game Sections */
+#timer, #todo, #playlist, #snake-game {
+    display: none;
+    opacity: 1;
+    font-size: 10px;
+    transition: all;
+    width: 100px;
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.show {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+#timer-display {
+    font-size: 24px; 
+    font-weight: bold;
+    margin-top: 10px;
+    display: block; /* Ensures it's on a new line */
+    text-align: center;
+    min-width: 80px; /* Prevents shrinking */
+}
+
+
+/* 🌟 To-Do List Customization */
+.todo-item {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    background: rgba(51, 1, 1, 0.2);
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.check-btn {
+    background: rgb(184, 255, 184);
+    color: rgb(30, 75, 0);
+    border: none;
+    padding: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 8px;
+    transition: 0.3s;
+
+}
+
+.check-btn:hover {
+    background: rgb(1, 53, 1);
+}
+
+.delete-btn {
+    background: rgb(255, 200, 200);
+    color: rgb(77, 0, 23);
+    border: none;
+    padding: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 8px;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: rgb(112, 14, 39);
+}
 .extra-sidebar {
     position: fixed;
     top: 40%;
@@ -144,56 +252,721 @@ button:hover {
     flex-direction: column;
     gap: 50px;
 }
+
 .extra-sidebar .sidebar-btn {
     background: #eea2af;
-    color: rgb(255, 255, 255);
+    color: white;
     border: none;
     padding: 20px;
     cursor: pointer;
     border-radius: 5px;
 }
+
 .extra-sidebar .sidebar-btn:hover {
     background: #b9b9b9;
 }
 
-/* Snake Game */
+/* 🌟 Snake Game */
 #game {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;  /* Center everything */
     justify-content: center;
-    width: 90%;
+    width: 100%;
     text-align: center;
+    margin-top: 20px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .game-widget canvas {
-    width: 100%;
-    max-width: 150px;
-    max-height: 150px;
+    width: 100% !important;  
+    height: auto !important;
+    max-width: 200px;  /* Adjust the size as needed */
+    max-height: 200px;
 }
 
-/* Music Player */
+
+#game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#game-controls button {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#game-controls button:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Fix Sidebar Button */
+.sidebar button[data-target="snake-game"] {
+    background: rgb(145, 16, 95);
+}
+
+
+
+/* Fix Icon Image */
+.icon-img {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* 🎵 Music Player Styling */
 #nowPlaying {
     text-align: center;
+    margin: 10px auto;
     padding: 10px;
     max-width: 300px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.music-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 250px;
+    margin: auto;
+}
+
+iframe, audio, video {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* 🎵 Draggable Music Player */
+#nowPlaying {
+    position: relative;
+    top: 80px;  /* Default position */
+    left: 50px; /* Default position */
+    width: 300px;
+    cursor: grab;
     background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    cursor: grab;
 }
+
 #nowPlaying:active {
     cursor: grabbing;
 }
 
-/* Global Variables */
+#playlistContainer li {
+    list-style: none;
+    padding: 5px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 5px;
+}
+
 :root {
     --bg-color: #ffffff;
     --text-color: #ffffff;
     --widget-bg: #f0f0f0;
 }
 
+.widget {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    background: white;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.drag-btn {
+    display: flex;
+    background: #e9add7;
+    color: rgb(255, 255, 255);
+    width: 95%;
+    justify-content: center;
+    align-items: center;
+    width: 95%; /* Make it stretch across */
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    cursor: grab;
+}
+
+.resizer {
+    width: 10px;
+    height: 10px;
+    background: rgb(230, 156, 233);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: nwse-resize;
+    border-radius: 50%;
+}
+
+
+.resizable::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #555;
+    border-radius: 50%;
+    right: 5px;
+    bottom: 5px;
+    cursor: nwse-resize;
+}
+
+.hidden {
+    display: none;
+}
+
+#timer, #todo, #calculator, #playlist, #snake-game {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+#timer.show, #todo.show, #playlist.show, #snake-game.show {
+    max-height: 100px;
+}
+
+#wallpaper-gallery {
+    display: none; /* Hidden by default */
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    background: white;
+    border: 1px solid rgb(22, 0, 0);
+    width: 320px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: fixed;
+    top: 100px; /* Adjust based on sidebar position */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.wallpaper-option {
+    width: 120px;
+    height: 70px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.wallpaper-option img.wallpaper-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.wallpaper-option:hover {
+    border: 1px solid #25000e;
+}
+
+.widget {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.widget.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* Layout Fix */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Right Sidebar (Navigation) */
+.right-sidebar {
+    width: 90px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+
+
+.right-sidebar button:hover {
+    background: #f596c2;
+}
+
+/* Adjust content so it doesn't get hidden */
+.content {
+    margin-right: 220px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/* Left Sidebar (Widgets Toggle) */
+.left-sidebar {
+    width: 80px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+.left-sidebar button:hover {
+    background: #f596c2;
+}
+
+.darkMode {
+  /* 🌟 General Styling */
+body {
+    font-family: serif;
+    background: url('images/dark.jpg') no-repeat center center fixed;
+    background-size: cover; /* Resize to fit screen */
+    background-position: center;
+    color: rgb(8, 0, 0);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.header {
+    text-align: center; /* Center everything */
+    position: absolute;
+    top: 5px; /* Push it up */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    width: 100%;
+}
+
+.site-name {
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #fff5f5;
+    margin-bottom: 1px;
+}
+
+.welcome-text {
+    font-size: 18px;
+    color: #ebebeb; /* Lighter color */
+    margin-bottom: 5px;
+    font-family: serif; 
+}
+
+.header-image {
+    width: 90px; /* Set image width */
+    display: block; /* Make it a block element */
+    margin: 0px auto; /* Center it horizontally */
+}
+
+
+/* 🌟 Main Container */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two sections */
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* 🌟 Left & Right Sections */
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.right-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 🌟 Widget Styling */
+.widget {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    min-height: 150px;
+    width: 100%;
+    position: relative;
+
+}
+
+.widget:hover {
+    transform: scale(1.02);
+}
+
+/* 🌟 Buttons */
+button {
+    background: linear-gradient(135deg, #36000e, #4b010d);
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #000000, #3d3d3d);
+    transform: scale(1.05);
+}
+
+/* 🌟 Sidebar */
+.sidebar {
+    width: 50px;
+    position: fixed;
+    left: 10px;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(235, 235, 235, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(228, 204, 204, 0.2);
+}
+
+
+
+.sidebar-btn:hover {
+    background: rgba(128, 90, 90, 0.4);
+    transform: scale(1.05);
+}
+
+
+/* 🌟 Timer, To-Do, Playlist, Game Sections */
+#timer, #todo, #playlist, #snake-game {
+    display: none;
+    opacity: 1;
+    font-size: 10px;
+    transition: all;
+    width: 100px;
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.show {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+#timer-display {
+    font-size: 24px; 
+    font-weight: bold;
+    margin-top: 10px;
+    display: block; /* Ensures it's on a new line */
+    text-align: center;
+    min-width: 80px; /* Prevents shrinking */
+}
+
+
+/* 🌟 To-Do List Customization */
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    background: rgba(51, 1, 1, 0.2);
+    margin-bottom: 5px;
+}
+
+.check-btn {
+    background: rgb(1, 44, 1);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 8px;
+    transition: 0.3s;
+
+}
+
+.check-btn:hover {
+    background: rgb(255, 255, 255);
+}
+
+.delete-btn {
+    background: rgb(224, 207, 207);
+    color: rgb(95, 2, 2);
+    border: none;
+    padding: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 8px;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: rgb(66, 1, 1);
+}
+.extra-sidebar {
+    position: fixed;
+    top: 40%;
+    right: 5px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.extra-sidebar .sidebar-btn {
+    background: #222;
+    color: rgb(90, 90, 90);
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.extra-sidebar .sidebar-btn:hover {
+    background: #b9b9b9;
+}
+
+/* 🌟 Snake Game */
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center everything */
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game-widget canvas {
+    width: 100% !important;  
+    height: auto !important;
+    max-width: 200px;  /* Adjust the size as needed */
+    max-height: 200px;
+}
+
+#game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#game-controls button {
+    background: rgba(105, 105, 105, 0.589);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#game-controls button:hover {
+    background: rgba(206, 206, 206, 0.4);
+}
+
+/* Fix Sidebar Button */
+.sidebar button[data-target="snake-game"] {
+    background: rgba(54, 0, 54, 0.425);
+}
+
+
+/* Fix Icon Image */
+.icon-img {
+    width: 20px;
+    height: 20px;
+}
+
+/* 🎵 Music Player Styling */
+#nowPlaying {
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
+    max-width: 300px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.music-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 250px;
+    margin: auto;
+}
+
+iframe, audio, video {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* 🎵 Draggable Music Player */
+#nowPlaying {
+    position: relative;
+    top: 80px;  /* Default position */
+    left: 50px; /* Default position */
+    width: 300px;
+    cursor: grab;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+#nowPlaying:active {
+    cursor: grabbing;
+}
+
+#playlistContainer li {
+    list-style: none;
+    padding: 5px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 5px;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --widget-bg: #f0f0f0;
+}
+
+.dark-mode {
+    --bg-color: #050505;
+    --text-color: #130000;
+    --widget-bg: #222;
+    --btn-bg: #333;
+    --btn-hover: #444;
+}
+.dark-mode {
+    background: url("images/dark.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+}
+
+/* Ensure widgets, sidebar, and header match the theme */
+.widget, .sidebar {
+    background-color: rgba(44, 2, 9, 0.9);
+    color: rgb(255, 255, 255);
+}
+
+   
+
+.widget {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    background: rgb(31, 0, 0);
+    border: 1px solid rgb(39, 0, 2);
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.drag-btn {
+    display: flex;
+    background: #f7d7da;
+    color: rgb(44, 0, 0);
+    width: 95%;
+    justify-content: center;
+    align-items: center;
+    width: 95%; /* Make it stretch across */
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    cursor: grab;
+}
+
+.resizer {
+    width: 10px;
+    height: 10px;
+    background: rgb(245, 214, 216);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: nwse-resize;
+    border-radius: 50%;
+}
+
+
+.resizable::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #000000;
+    border-radius: 50%;
+    right: 5px;
+    bottom: 5px;
+    cursor: nwse-resize;
+}
+
+.hidden {
+    display: none;
+}
+
+#timer, #todo, #calculator, #playlist, #snake-game {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+#timer.show, #todo.show, #playlist.show, #snake-game.show {
+    max-height: 100px;
+}
+
+.right-sidebar button:hover {
+    background: #634e58;
+}
+.left-sidebar button:hover {
+    background: #634e58;
+}  
+}

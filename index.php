@@ -9,24 +9,21 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safe Space</title>
+    <link rel="stylesheet" href="style.css?v=2">
     <link rel="icon" href="favicon.png" type="image/png">
     <link id="themeStylesheet" rel="stylesheet" href="style.css">
     <link id="theme-link" rel="stylesheet" href="light.css">
-
 </head>
-
 <body>
 
     <!-- Header -->
-   
     <div class="header">
         <h1 class="site-name">Safe Space</h1>
-        <h2 class="welcome-text">Hello special people, Welcome to my world!</h2>
+        <h2 class="welcome-text">Hello special people, Welcome to my world</h2>
     </div>
-   
+
     <!-- Main Layout -->
     <div class="container">
-
     <?php
 require 'db.php'; // No need to start session again, it's already handled
 
@@ -44,8 +41,6 @@ if (isset($_SESSION['user_id'])) {
     $query->close();
 }
 ?>
-
-
         <!-- Right Sidebar (Navigation) -->
         <aside class="right-sidebar">
             
@@ -92,9 +87,9 @@ if (isset($_SESSION['user_id'])) {
 
                 <!-- To-Do List -->
                 <div id="todoWidget" class="widget draggable resizable" style="display: none;">
-                    <div class="widget-header">✔ To-Do List</div>
+                    <div class="widget-header">✅ To-Do List</div>
                     <input type="text" id="taskInput" placeholder="Add a task">
-                    <button onclick="addTask()">✚ Add</button>
+                    <button onclick="addTask()">➕ Add</button>
                     <ul id="taskList"></ul>
                 </div>
 
@@ -112,18 +107,16 @@ if (isset($_SESSION['user_id'])) {
         </div>
 
         <!-- Left Sidebar (Widgets Toggle) -->
-       
         <aside class="left-sidebar">
         <?php if (!isset($_SESSION['user_id'])): ?>
     <button onclick="location.href='login.php'">🔑 Login</button>
 <?php endif; ?>
-
             <button class="sidebar-btn" onclick="toggleWidget('gameWidget')">🐍</button>
             <button class="sidebar-btn" onclick="toggleWidget('timerWidget')">⏳</button>
             <button class="sidebar-btn" onclick="toggleWidget('todoWidget')">📋</button>
             <button class="sidebar-btn" onclick="toggleWidget('playlistWidget')">🎵</button>
             <div id="notes-container"></div>
-            <button onclick="addStickyNote()">✚ Note</button>
+            <button onclick="addStickyNote()">➕ Note</button>
             <input type="file" id="wallpaper-input" accept="image/*" style="display: none;">
             <button onclick="document.getElementById('wallpaper-input').click();">🖼</button>
             <div id="wallpaper-gallery" style="display: none;">
@@ -132,7 +125,6 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <button onclick="toggleWallpaperGallery()">🖼 Gallery</button>
             <button id="darkModeToggle">🌙</button>
-            
             <div class="content">
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
@@ -163,6 +155,5 @@ if (isset($_SESSION['user_id'])) {
 
 </body>
 </html>
-
 
 

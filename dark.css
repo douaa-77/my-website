@@ -1,7 +1,7 @@
 
 /* 🌟 General Styling */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: serif;
     background: url('images/dark.jpg') no-repeat center center fixed;
     background-size: cover; /* Resize to fit screen */
     background-position: center;
@@ -35,7 +35,8 @@ body {
     font-size: 18px;
     color: #ebebeb; /* Lighter color */
     margin-bottom: 5px;
-font-family: cursive;}
+font-family:serif;
+}
 
 .header-image {
     width: 90px; /* Set image width */
@@ -409,7 +410,7 @@ iframe, audio, video {
     transition: max-height 0.5s ease-in-out;
 }
 
-#timer.show, #todo.show, #calculator.show, #playlist.show, #snake-game.show {
+#timer.show, #todo.show, #playlist.show, #snake-game.show {
     max-height: 100px;
 }
 
